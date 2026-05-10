@@ -1,0 +1,86 @@
+{"0": {
+    "doc": "About",
+    "title": "About Me",
+    "content": ". I’m Aniket,i am cool. ",
+    "url": "/about.html#about-me",
+    
+    "relUrl": "/about.html#about-me"
+  },"1": {
+    "doc": "About",
+    "title": "About",
+    "content": " ",
+    "url": "/about.html",
+    
+    "relUrl": "/about.html"
+  },"2": {
+    "doc": "cs",
+    "title": "CS",
+    "content": "Placeholder for computer science content. ",
+    "url": "/cs.html#cs",
+    
+    "relUrl": "/cs.html#cs"
+  },"3": {
+    "doc": "cs",
+    "title": "cs",
+    "content": " ",
+    "url": "/cs.html",
+    
+    "relUrl": "/cs.html"
+  },"4": {
+    "doc": "Home",
+    "title": "aniketink",
+    "content": "Welcome. This is the home page placeholder. ",
+    "url": "/#aniketink",
+    
+    "relUrl": "/#aniketink"
+  },"5": {
+    "doc": "Home",
+    "title": "Home",
+    "content": " ",
+    "url": "/",
+    
+    "relUrl": "/"
+  },"6": {
+    "doc": "logbook",
+    "title": "Logbook",
+    "content": "Placeholder for blog posts. [2026.05.10] First entry placeholder. ",
+    "url": "/logbook.html#logbook",
+    
+    "relUrl": "/logbook.html#logbook"
+  },"7": {
+    "doc": "logbook",
+    "title": "logbook",
+    "content": " ",
+    "url": "/logbook.html",
+    
+    "relUrl": "/logbook.html"
+  },"8": {
+    "doc": "math",
+    "title": "Math",
+    "content": "Placeholder for math notes. eiπ+1=0e^{i\\pi} + 1 = 0eiπ+1=0 ",
+    "url": "/math.html#math",
+    
+    "relUrl": "/math.html#math"
+  },"9": {
+    "doc": "math",
+    "title": "math",
+    "content": " ",
+    "url": "/math.html",
+    
+    "relUrl": "/math.html"
+  },"10": {
+    "doc": "Mech",
+    "title": "Mechanical Engineering",
+    "content": "Placeholder for mechanical engineering content. ",
+    "url": "/mech.html#mechanical-engineering",
+    
+    "relUrl": "/mech.html#mechanical-engineering"
+  },"11": {
+    "doc": "Mech",
+    "title": "Mech",
+    "content": " ",
+    "url": "/mech.html",
+    
+    "relUrl": "/mech.html"
+  }
+}

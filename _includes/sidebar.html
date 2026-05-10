@@ -1,0 +1,48 @@
+<aside class="sidebar">
+  <div class="sidebar-profile" style="background-image: url('/assets/images/me.jpg');">
+    <p class="sidebar-bio">cool cat</p>
+  </div>
+
+  {% assign current_path = page.url | split: '/' %}
+  {% assign base_path = current_path[1] | replace: ".html", "" %}
+  
+  {% if base_path and base_path != "" and base_path != "index" %}
+    <nav class="sub-nav">
+      <details open>
+        <summary class="sub-nav-title">{{ base_path | upcase }} NOTES</summary>
+        <ul class="tree-list">
+          {% assign category_pages = site.pages | sort: "nav_order" %}
+          {% for p in category_pages %}
+            {% assign p_path = p.url | split: '/' %}
+            {% if p_path[1] == base_path and p.url != page.url and p.title %}
+              <li class="tree-item">
+                <span class="tree-branch">├─</span>
+                <a href="{{ p.url }}">{{ p.title }}</a>
+              </li>
+            {% endif %}
+          {% endfor %}
+          <li class="tree-item last">
+            <span class="tree-branch">└─</span>
+            <span class="tree-end">end of section</span>
+          </li>
+        </ul>
+      </details>
+    </nav>
+  {% endif %}
+  
+  <div class="sidebar-gallery">
+    <div class="gallery-item" style="background-image: url('/assets/images/landscape.jpg');">
+      <div class="gallery-text">
+        <h3>The Open Field</h3>
+        <p>A study in atmospheric perspective and the weight of the sky.</p>
+      </div>
+    </div>
+
+    <div class="gallery-item" style="background-image: url('/assets/images/ships.jpg');">
+      <div class="gallery-text">
+        <h3>Harbor Stillness</h3>
+        <p>The interplay of mast and sea. A moment of transition.</p>
+      </div>
+    </div>
+  </div>
+</aside>

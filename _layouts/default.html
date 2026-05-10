@@ -1,0 +1,126 @@
+---
+layout: none
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  {% include head_custom.html %}
+</head>
+{% assign page_img = "/assets/images/landscape.jpg" %}
+{% if page.url contains "/math" %}
+  {% assign page_img = "/assets/images/still-life.jpg" %}
+{% elsif page.url contains "/cs" %}
+  {% assign page_img = "/assets/images/ships.jpg" %}
+{% elsif page.url contains "/mech" %}
+  {% assign page_img = "/assets/images/ships.jpg" %}
+{% elsif page.url contains "/logbook" %}
+  {% assign page_img = "/assets/images/family.jpg" %}
+{% endif %}
+
+<body style="--bg-image: url('{{ page_img }}');">
+
+  {% include header.html %}
+
+  <div class="layout-container">
+    {% include sidebar.html %}
+
+    <main class="main-content">
+      {% if page.url == "/" %}
+        <div class="art-banner">
+          <img src="{{ page_img }}" alt="">
+        </div>
+
+        <section class="updates-section">
+          <h2>My life these days</h2>
+          <ul class="updates-list">
+            <li><span class="date">[2024.05.10]</span> Learning about advanced Jekyll layouts.</li>
+            <li><span class="date">[2024.05.05]</span> Exploring vector fields in mathematics.</li>
+            <li><span class="date">[2024.04.28]</span> Redesigning my digital garden.</li>
+            <li><span class="date">[2024.04.15]</span> Starting a new Rust project.</li>
+          </ul>
+        </section>
+
+        <div class="content-split">
+          <section class="latest-posts">
+            <h2>Latest posts</h2>
+            <div class="post-rows">
+              {% assign posts = site.pages | where_exp: "item", "item.nav_order != nil" | sort: "nav_order" %}
+              {% for post in posts limit: 4 %}
+                <a href="{{ post.url }}" class="post-row">
+                  <span class="post-title">{{ post.title }}</span>
+                  <span class="post-arrow">→</span>
+                </a>
+              {% endfor %}
+              {% if posts.size == 0 %}
+                <div class="post-row"><span>No posts found.</span></div>
+              {% endif %}
+            </div>
+          </section>
+
+          <section class="working-on">
+            <h2>Currently working on</h2>
+            <ul class="task-list">
+              <li>Refining the math blog engine</li>
+              <li>Optimizing SVG rendering</li>
+              <li>Writing a paper on CS theory</li>
+              <li>Building a custom TUI dashboard</li>
+            </ul>
+          </section>
+        </div>
+      {% endif %}
+
+      <div class="page-content">
+        {{ content }}
+      </div>
+    </main>
+
+    {% include sidebar_right.html %}
+  </div>
+
+  <div id="image-modal" class="modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="img-expanded">
+    <div id="caption"></div>
+  </div>
+
+  <script>
+    const modal = document.getElementById("image-modal");
+    const modalImg = document.getElementById("img-expanded");
+    const captionText = document.getElementById("caption");
+
+    // Handle clicks on background images (sidebar gallery)
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.style.cursor = 'zoom-in';
+      item.onclick = function() {
+        const bg = this.style.backgroundImage;
+        const url = bg.replace(/url\(['"]?(.*?)['"]?\)/i, '$1');
+        const title = this.querySelector('h3') ? this.querySelector('h3').innerText : "";
+        
+        modal.style.display = "flex";
+        modalImg.src = url;
+        captionText.innerHTML = title;
+      }
+    });
+
+    // Handle clicks on content images
+    document.querySelectorAll('.page-content img').forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.onclick = function() {
+        modal.style.display = "flex";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;
+      }
+    });
+
+    // Close modal on click anywhere
+    modal.onclick = function() {
+      modal.style.display = "none";
+    }
+  </script>
+
+</body>
+</html>

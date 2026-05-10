@@ -1,0 +1,18 @@
+<header class="site-header">
+  <div class="header-container">
+    <div class="header-left">
+      <a href="/" class="site-title">{{ site.title | default: "aniketink" }}</a>
+    </div>
+    <nav class="header-nav">
+      <a href="/">Home</a>
+      <a href="/math">Math</a>
+      <a href="/cs">CS</a>
+      <a href="/mech">Mech</a>
+      <a href="/logbook">Logbook</a>
+      <a href="/about">About</a>
+    </nav>
+    <div class="header-right">
+      {% include social_icons.html %}
+    </div>
+  </div>
+</header>

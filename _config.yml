@@ -1,0 +1,14 @@
+title: aniketink
+url: "https://aniketink.github.io"
+baseurl: ""
+# theme: just-the-docs # Commenting out to use our custom brutalist theme
+
+# Navigation
+nav_sort: case_insensitive
+search_enabled: false
+heading_anchors: false
+
+# Math via KaTeX
+markdown: kramdown
+kramdown:
+  math_engine: katex
