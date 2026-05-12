@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Devlogs
+title: deVlogs
 nav_order: 3
 ---
 
-# Devlogs
+# deVlogs
 
 Placeholder for development logs.

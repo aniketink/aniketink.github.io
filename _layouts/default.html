@@ -17,9 +17,13 @@ layout: none
 {% elsif page.url contains "/cs" %}
   {% assign page_img = "/assets/images/ships.jpg" %}
 {% elsif page.url contains "/cool-stuff" %}
-  {% assign page_img = "/assets/images/ships.jpg" %}
+  {% assign page_img = "/assets/images/family1.JPG" %}
 {% elsif page.url contains "/devlogs" %}
   {% assign page_img = "/assets/images/family.jpg" %}
+{% elsif page.url contains "/about" %}
+  {% assign page_img = "/assets/images/about.JPG" %}
+{% elsif page.url contains "/gallery" %}
+  {% assign page_img = "/assets/images/family2.JPG" %}
 {% endif %}
 
 <body style="--bg-image: url('{{ page_img }}');">
