@@ -13,17 +13,17 @@ layout: none
 </head>
 {% assign page_img = "/assets/images/landscape.jpg" %}
 {% if page.url contains "/math" %}
-  {% assign page_img = "/assets/images/still-life.jpg" %}
+  {% assign page_img = "/assets/images/van-gogh-math.jpg" %}
 {% elsif page.url contains "/cs" %}
-  {% assign page_img = "/assets/images/ships.jpg" %}
+  {% assign page_img = "/assets/images/van-gogh-cs.jpg" %}
 {% elsif page.url contains "/cool-stuff" %}
-  {% assign page_img = "/assets/images/family1.JPG" %}
+  {% assign page_img = "/assets/images/van-gogh-cool-stuff.jpg" %}
 {% elsif page.url contains "/devlogs" %}
-  {% assign page_img = "/assets/images/family.jpg" %}
+  {% assign page_img = "/assets/images/van-gogh-devlogs.jpg" %}
 {% elsif page.url contains "/about" %}
-  {% assign page_img = "/assets/images/about.JPG" %}
+  {% assign page_img = "/assets/images/van-gogh-about.jpg" %}
 {% elsif page.url contains "/gallery" %}
-  {% assign page_img = "/assets/images/family2.JPG" %}
+  {% assign page_img = "/assets/images/van-gogh-gallery.jpg" %}
 {% endif %}
 
 <body style="--bg-image: url('{{ page_img }}');">
