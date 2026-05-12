@@ -15,8 +15,8 @@ $font-mono: "IBM Plex Mono", monospace;
 
 // Layout
 $header-height: 60px;
-$sidebar-width: 240px;
-$max-width: 1400px;
+$sidebar-width: 350px;
+$max-width: 98%;
 
 * {
   margin: 0;
@@ -117,7 +117,7 @@ h1, h2, h3 {
   .main-content {
     padding: 60px;
     background: transparent;
-    max-width: 1200px; // Cap width for readability
+    max-width: 1600px; // Increased for immersive gallery
     margin: 0 auto;
     width: 100%;
     
@@ -566,5 +566,36 @@ h1, h2, h3 {
 @media (max-width: 800px) {
   .sidebar-gallery {
     display: none;
+  }
+}
+
+// Masonry Collage for Gallery Page
+.gallery-grid {
+  column-count: 2;
+  column-gap: 30px;
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 60px;
+  
+  @media (max-width: 1000px) {
+    column-count: 2;
+  }
+  
+  @media (max-width: 800px) {
+    column-count: 1;
+  }
+
+  img.gallery-img {
+    width: 100%;
+    margin-bottom: 20px;
+    display: inline-block;
+    border: 1px solid $border-color;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    cursor: zoom-in;
+    
+    &:hover {
+      transform: scale(1.02);
+      filter: brightness(1.2);
+    }
   }
 }

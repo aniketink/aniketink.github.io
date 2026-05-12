@@ -3,6 +3,7 @@ layout: none
 ---
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,17 +14,17 @@ layout: none
 </head>
 {% assign page_img = "/assets/images/landscape.jpg" %}
 {% if page.url contains "/math" %}
-  {% assign page_img = "/assets/images/van-gogh-math.jpg" %}
+{% assign page_img = "/assets/images/Still Life with Bible.jpg" %}
 {% elsif page.url contains "/cs" %}
-  {% assign page_img = "/assets/images/van-gogh-cs.jpg" %}
+{% assign page_img = "/assets/images/Weaver by Van Gogh.jpg" %}
 {% elsif page.url contains "/cool-stuff" %}
-  {% assign page_img = "/assets/images/van-gogh-cool-stuff.jpg" %}
+{% assign page_img = "/assets/images/Almond Blossom Vincent van Gogh.jpg" %}
 {% elsif page.url contains "/devlogs" %}
-  {% assign page_img = "/assets/images/van-gogh-devlogs.jpg" %}
+{% assign page_img = "/assets/images/Pollard Willow Vincent van Gogh.jpg" %}
 {% elsif page.url contains "/about" %}
-  {% assign page_img = "/assets/images/van-gogh-about.jpg" %}
+{% assign page_img = "/assets/images/Birds Nests Vincent van Gogh.jpg" %}
 {% elsif page.url contains "/gallery" %}
-  {% assign page_img = "/assets/images/van-gogh-gallery.jpg" %}
+{% assign page_img = "/assets/images/View of Paris Vincent van Gogh.jpg" %}
 {% endif %}
 
 <body style="--bg-image: url('{{ page_img }}');">
@@ -35,47 +36,47 @@ layout: none
 
     <main class="main-content">
       {% if page.url == "/" %}
-        <div class="art-banner">
-          <img src="{{ page_img }}" alt="">
-        </div>
+      <div class="art-banner">
+        <img src="{{ page_img }}" alt="">
+      </div>
 
-        <section class="updates-section">
-          <h2>My life these days</h2>
-          <ul class="updates-list">
-            <li><span class="date">[2024.05.10]</span> Learning about advanced Jekyll layouts.</li>
-            <li><span class="date">[2024.05.05]</span> Exploring vector fields in mathematics.</li>
-            <li><span class="date">[2024.04.28]</span> Redesigning my digital garden.</li>
-            <li><span class="date">[2024.04.15]</span> Starting a new Rust project.</li>
-          </ul>
+      <section class="updates-section">
+        <h2>My life these days</h2>
+        <ul class="updates-list">
+          <li><span class="date">[2024.05.10]</span> Learning about advanced Jekyll layouts.</li>
+          <li><span class="date">[2024.05.05]</span> Exploring vector fields in mathematics.</li>
+          <li><span class="date">[2024.04.28]</span> Redesigning my digital garden.</li>
+          <li><span class="date">[2024.04.15]</span> Starting a new Rust project.</li>
+        </ul>
+      </section>
+
+      <div class="content-split">
+        <section class="latest-posts">
+          <h2>Latest posts</h2>
+          <div class="post-rows">
+            {% assign posts = site.pages | where_exp: "item", "item.nav_order != nil" | sort: "nav_order" %}
+            {% for post in posts limit: 4 %}
+            <a href="{{ post.url }}" class="post-row">
+              <span class="post-title">{{ post.title }}</span>
+              <span class="post-arrow">→</span>
+            </a>
+            {% endfor %}
+            {% if posts.size == 0 %}
+            <div class="post-row"><span>No posts found.</span></div>
+            {% endif %}
+          </div>
         </section>
 
-        <div class="content-split">
-          <section class="latest-posts">
-            <h2>Latest posts</h2>
-            <div class="post-rows">
-              {% assign posts = site.pages | where_exp: "item", "item.nav_order != nil" | sort: "nav_order" %}
-              {% for post in posts limit: 4 %}
-                <a href="{{ post.url }}" class="post-row">
-                  <span class="post-title">{{ post.title }}</span>
-                  <span class="post-arrow">→</span>
-                </a>
-              {% endfor %}
-              {% if posts.size == 0 %}
-                <div class="post-row"><span>No posts found.</span></div>
-              {% endif %}
-            </div>
-          </section>
-
-          <section class="working-on">
-            <h2>Currently working on</h2>
-            <ul class="task-list">
-              <li>Refining the math blog engine</li>
-              <li>Optimizing SVG rendering</li>
-              <li>Writing a paper on CS theory</li>
-              <li>Building a custom TUI dashboard</li>
-            </ul>
-          </section>
-        </div>
+        <section class="working-on">
+          <h2>Currently working on</h2>
+          <ul class="task-list">
+            <li>Refining the math blog engine</li>
+            <li>Optimizing SVG rendering</li>
+            <li>Writing a paper on CS theory</li>
+            <li>Building a custom TUI dashboard</li>
+          </ul>
+        </section>
+      </div>
       {% endif %}
 
       <div class="page-content">
@@ -100,11 +101,11 @@ layout: none
     // Handle clicks on background images (sidebar gallery)
     document.querySelectorAll('.gallery-item').forEach(item => {
       item.style.cursor = 'zoom-in';
-      item.onclick = function() {
+      item.onclick = function () {
         const bg = this.style.backgroundImage;
         const url = bg.replace(/url\(['"]?(.*?)['"]?\)/i, '$1');
         const title = this.querySelector('h3') ? this.querySelector('h3').innerText : "";
-        
+
         modal.style.display = "flex";
         modalImg.src = url;
         captionText.innerHTML = title;
@@ -114,7 +115,7 @@ layout: none
     // Handle clicks on content images
     document.querySelectorAll('.page-content img').forEach(img => {
       img.style.cursor = 'zoom-in';
-      img.onclick = function() {
+      img.onclick = function () {
         modal.style.display = "flex";
         modalImg.src = this.src;
         captionText.innerHTML = this.alt;
@@ -122,10 +123,11 @@ layout: none
     });
 
     // Close modal on click anywhere
-    modal.onclick = function() {
+    modal.onclick = function () {
       modal.style.display = "none";
     }
   </script>
 
 </body>
+
 </html>
